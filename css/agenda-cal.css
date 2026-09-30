@@ -1,0 +1,65 @@
+﻿/* ---------------- CALENDARIO ---------------- */
+.cal__scroll{overflow-x:auto;overflow-y:hidden;padding-bottom:10px;
+  -webkit-overflow-scrolling:touch}
+/* En pantallas anchas el calendario sale del contenedor de texto (992px) y
+   usa hasta 1400px, para que cada día tenga más ancho. Los 16px de holgura
+   compensan la barra de desplazamiento, que 100vw incluye */
+@media(min-width:1100px){
+  .cal__scroll{margin-inline:calc((min(100vw - 2 * var(--gutter) - 16px, 1400px) - 100%) / -2)}
+}
+/* Columna de horas (76px) + un día por columna (--dias lo pone calendario.js
+   según los días de agenda.json), separados por un hueco de 12px.
+   Ancho mínimo = 76 + días × (200 + 12); con 5 días, 1136px, que cabe justo
+   en una pantalla de 1280px. Si no entra, la grilla se desliza de lado */
+.cal__grid{display:grid;grid-template-columns:76px repeat(var(--dias,4),minmax(200px,1fr));
+  column-gap:12px;min-width:calc(76px + var(--dias,4) * 212px)}
+.cal__col{border:1px solid var(--linea);background:var(--blanco);min-width:0}
+.cal__col:first-child{border:0;background:none}
+.cal__dh{background:var(--rojo);color:var(--blanco);padding:12px 14px;text-align:center;
+  line-height:1.25}
+.cal__dh b{font-family:var(--display);font-variation-settings:"wdth" 125,"wght" 800;
+  text-transform:uppercase;font-size:1.02rem;display:block}
+.cal__dh span{font-size:.84rem;opacity:.92}
+.cal__dh--vacio{background:var(--negro)}
+.cal__pista{position:relative;
+  background:repeating-linear-gradient(to bottom,var(--linea) 0 1px,transparent 1px var(--px-hora,90px))}
+.cal__pista--horas{background:none}
+.cal__h{position:absolute;right:14px;font-size:.76rem;font-weight:700;color:var(--suave);
+  transform:translateY(-50%);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+.ev{position:absolute;overflow:hidden;background:var(--blanco);border:1px solid var(--linea);
+  border-top:0;cursor:pointer;text-align:left;padding:0;display:flex;flex-direction:column;
+  transition:box-shadow .12s ease}
+.ev:hover,.ev:focus-visible{box-shadow:0 0 0 2px var(--negro);z-index:5}
+.ev__tag{font-size:.64rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;
+  padding:4px 11px;flex:none}
+.ev__cuerpo{padding:8px 11px;min-height:0;overflow:hidden}
+.ev__t{font-weight:700;font-size:.82rem;line-height:1.2;margin:0 0 3px;overflow-wrap:break-word;hyphens:auto;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.ev__h{font-size:.72rem;line-height:1.35;color:var(--suave);font-variant-numeric:tabular-nums;margin:0}
+.ev--codir .ev__tag{background:var(--rojo);color:var(--blanco)}
+.ev--codir{border-color:var(--rojo)}
+.ev--parejas .ev__tag{background:var(--blanco);color:var(--rojo);border-bottom:2px solid var(--rojo)}
+.ev--parejas{border:2px dashed var(--rojo)}
+.ev--todos .ev__tag{background:var(--negro);color:var(--blanco)}
+.ev--todos{border-color:var(--negro)}
+.ev--libre .ev__tag{background:var(--linea);color:var(--tinta)}
+.ev--abierto{border-bottom:2px dashed currentColor}
+
+.cal__sin{border-top:1px solid var(--linea);padding:10px}
+.cal__sin p{margin:0 0 8px;font-size:.7rem;font-weight:800;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--suave)}
+.cal__sin .ev{position:static;margin-bottom:8px;width:auto}
+.cal__nota{color:var(--suave);font-size:.9rem;margin:14px 0 0}
+
+.bloque__t,.bloque__l{display:block}
+.bloque__t{font-weight:700;font-size:1.06rem;margin:0 0 3px}
+.bloque--libre .bloque__t{font-weight:500;color:var(--suave)}
+.bloque__l{margin:0;color:var(--suave);font-size:.95rem}
+.bloque__mas{align-self:center;color:var(--suave);font-size:.82rem;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.pendiente{color:var(--rojo);font-weight:700}
+
+
+
+

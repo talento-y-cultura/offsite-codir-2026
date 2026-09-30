@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  OFFSITE CODIR 2026 — UNACEM · Cusco y Valle Sagrado · 4 al 8 de noviembre
+  Sitio estático, sin build. Estructura:
+
+    index.html        esta página (textos de las secciones fijas)
+    data/agenda.json  EL CRONOGRAMA — es lo único que hay que editar para la agenda
+    css/              estilos por parte (tokens, base, hero, secciones, agenda, modal, print)
+    js/               comportamiento (app, lista, calendario, modal, formato)
+    img/              logo y fotos/ (fotos de lugares y hoteles)
+    legacy/           versión anterior en un solo archivo, como referencia
+
+  PARA VERLA EN TU COMPUTADORA
+  Abrir index.html con doble clic NO carga la agenda (el navegador bloquea
+  leer el JSON desde un archivo local). Haz doble clic en servir.bat y abre
+  http://localhost:8000 . Publicada en GitHub Pages funciona sin pasos extra.
+
+  PARA EDITAR LA AGENDA — data/agenda.json
+  Cada actividad tiene estos campos:
+    inicio / fin : "2026-11-04 11:35"  (24 h; null si aún no hay hora)
+    titulo       : nombre de la actividad
+    lugar        : dónde ocurre
+    desc         : descripción larga (aparece en el detalle). \n empieza un
+                   renglón nuevo; las horas ("10:45 a. m.") y los rótulos al
+                   inicio del renglón ("Grupo 1: …") salen solos en negrita
+    objetivo     : el "objetivo" del cuadro original
+    quien        : "codir" | "parejas" | "libre" | "todos"
+    mapa         : enlace de Google Maps ("https://maps.app.goo.gl/…") o texto
+                   a buscar ("Casa Cartagena Cusco"); "" si no aplica
+    web          : página web del lugar ("" si no hay; muestra botón "Página web")
+    foto         : "img/fotos/aeropuerto-cusco.jpg"  ("" muestra un marcador gris)
+
+  PARA AGREGAR UNA FOTO
+  Copia la imagen en img/fotos/ y escribe su ruta en el campo foto.
+  Nombre en minúsculas, sin tildes ni espacios, .jpg, máx. 1600 px y 300 KB.
+  Al publicar la página, sube también la carpeta img.
+
+  MARCA
+  Rojo Pantone 485 (#ff0000), negro y blanco, con la proporción 50/40/10 del
+  Manual de Marca UNACEM. El fondo inferior del hero es un muro incaico en
+  trazo blanco (herramientas/muro-incaico.py). Sin colores fuera del manual.
+
+  TIPOGRAFÍAS
+  Chaney y Silka tienen licencia comercial y no se pueden cargar en web.
+  Se usan Archivo Expanded y Hanken Grotesk como sustitutos (css/tokens.css).
+
+  PRIVACIDAD — LEER ANTES DE PUBLICAR
+  Esta página contiene el itinerario del Comité de Dirección y sus parejas,
+  con hoteles y horarios. Se publica en GitHub Pages y el enlace se comparte
+  solo por correo con los invitados. Nunca agregar números de habitación,
+  celulares personales, números de vuelo, placas ni nombres de las parejas.
+  ============================================================================
+-->
+<html lang="es-PE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Offsite Codir 2026 · UNACEM</title>
+<meta name="description" content="Agenda, hospedaje e información práctica del offsite del Comité de Dirección. Cusco y Valle Sagrado, 4 al 8 de noviembre de 2026.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23ff0000'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112..125,600..800&family=Hanken+Grotesk:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/hero.css">
+<link rel="stylesheet" href="css/secciones.css">
+<link rel="stylesheet" href="css/agenda-lista.css">
+<link rel="stylesheet" href="css/agenda-cal.css">
+<link rel="stylesheet" href="css/modal.css">
+<link rel="stylesheet" href="css/animaciones.css">
+<link rel="stylesheet" href="css/print.css">
+<!-- Activa las animaciones solo si el usuario no pidió reducir movimiento -->
+<script>if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("anima")</script>
+</head>
+<body>
+
+<a class="saltar" href="#agenda">Saltar a la agenda</a>
+
+<header class="hero">
+  <div class="hero__skyline" aria-hidden="true">
+<!-- Muro incaico: piedras en trazo blanco que se dibujan de abajo hacia arriba.
+     Generado con herramientas/muro-incaico.py (semilla 5): hiladas de bloques con esquinas redondeadas.
+     En cada piedra, style="--n:…;--t:…" da su turno de inicio (menor = antes) y su duración en segundos. -->
+<svg viewBox="0 0 1920 260" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="6" stroke-linejoin="round">
+    <path pathLength="1" style="--n:9.3;--t:1.61" d="M1504,230Q1502,245 1517,245L1520,245Q1535,246 1551,245L1563,245Q1579,244 1589,244L1591,244Q1602,244 1601,230L1600,227Q1599,213 1598,201L1598,199Q1598,187 1582,186L1570,186Q1554,185 1538,183L1524,181Q1508,179 1507,195L1507,198Q1507,213 1505,228Z"/>
+    <path pathLength="1" style="--n:12.1;--t:1.51" d="M731,226Q732,242 748,244L752,244Q768,245 782,245L785,245Q799,245 813,245L816,245Q829,244 842,244L844,244Q857,244 850,232L848,229Q841,217 839,202L835,180Q833,164 817,165L805,165Q789,166 773,168L748,171Q732,173 732,188L731,191Q731,206 731,222Z"/>
+    <path pathLength="1" style="--n:2.2;--t:0.8" d="M1182,227Q1183,243 1197,245L1200,245Q1214,247 1230,246L1244,245Q1260,243 1261,228L1261,222Q1261,206 1262,190L1262,184Q1263,168 1247,167L1237,167Q1221,167 1206,166L1198,166Q1183,165 1182,181L1181,186Q1180,202 1181,218Z"/>
+    <path pathLength="1" style="--n:9.5;--t:1.47" d="M221,230Q222,242 229,242L231,242Q238,241 249,242L251,242Q262,242 277,244L280,245Q295,247 311,246L332,244Q348,242 347,230L347,228Q346,215 347,199L348,193Q349,177 333,178L310,178Q294,178 282,181L280,181Q268,184 252,184L233,185Q217,185 219,198L219,201Q221,215 221,227Z"/>
+    <path pathLength="1" style="--n:7.8;--t:1.71" d="M491,232Q493,246 508,245L522,243Q538,242 538,227L538,223Q538,208 537,194L536,191Q535,177 519,176L504,176Q488,175 488,191L488,198Q489,214 490,229Z"/>
+    <path pathLength="1" style="--n:3.5;--t:1.23" d="M145,229Q145,240 157,241L160,241Q172,241 188,242L195,243Q211,244 210,228L210,224Q209,208 207,193L206,190Q204,176 190,179L187,179Q174,182 161,184L158,184Q145,185 145,199L145,202Q145,216 145,227Z"/>
+    <path pathLength="1" style="--n:1.2;--t:1.77" d="M359,227Q358,242 374,243L414,245Q430,246 446,246L458,247Q474,248 476,232L477,221Q479,205 478,189L478,174Q478,158 463,160L460,160Q444,161 428,162L412,162Q396,162 380,164L377,165Q361,166 361,182L360,193Q360,209 359,224Z"/>
+    <path pathLength="1" style="--n:14.7;--t:1.44" d="M-106,229Q-106,242 -90,243L-75,244Q-59,245 -43,244L-40,244Q-25,244 -9,244L-6,244Q10,245 10,229L10,222Q9,206 10,192L10,190Q10,176 -6,177L-20,177Q-36,178 -52,177L-63,177Q-79,177 -93,176L-96,176Q-111,175 -109,191L-109,197Q-107,213 -106,226Z"/>
+    <path pathLength="1" style="--n:9.5;--t:1.49" d="M19,229Q20,245 36,243L50,241Q66,239 79,239L82,239Q95,239 111,240L117,241Q133,242 134,226L136,205Q137,189 121,186L113,185Q98,183 82,182L79,181Q63,180 47,180L35,180Q19,180 19,193L18,195Q18,207 19,223Z"/>
+    <path pathLength="1" style="--n:4.0;--t:0.83" d="M861,232Q865,238 872,238L1058,246Q1065,246 1070,240L1071,238Q1075,232 1077,225L1077,223Q1079,216 1079,209L1080,180Q1080,173 1078,166L1071,147Q1068,141 1061,140L1060,139Q1053,138 1053,131L1053,108Q1053,102 1046,101L962,89Q955,88 952,82L951,81Q947,75 940,75L893,76Q886,76 883,71L882,70Q878,64 871,64L868,65Q861,65 861,72L862,98Q862,105 861,112L860,119Q858,126 852,128L849,129Q842,131 842,138L842,139Q842,146 843,153L851,208Q852,215 855,221Z"/>
+    <path pathLength="1" style="--n:8.8;--t:2.19" d="M1702,224Q1702,240 1711,241L1713,241Q1722,242 1738,241L1756,240Q1772,239 1788,239L1795,239Q1811,239 1812,223L1813,213Q1814,197 1815,182L1815,179Q1816,164 1800,164L1788,163Q1772,162 1756,161L1751,161Q1735,159 1721,159L1718,159Q1704,160 1704,176L1703,180Q1703,196 1702,212Z"/>
+    <path pathLength="1" style="--n:13.3;--t:1.99" d="M1821,225Q1821,241 1836,240L1839,240Q1854,239 1867,240L1869,240Q1882,242 1896,241L1899,241Q1913,240 1927,243L1930,243Q1943,246 1941,230L1941,227Q1939,212 1939,196L1939,192Q1940,176 1924,177L1921,177Q1906,178 1890,180L1872,183Q1856,185 1841,186L1838,186Q1822,187 1822,203Z"/>
+    <path pathLength="1" style="--n:7.1;--t:1.86" d="M1136,227Q1135,240 1151,242L1157,242Q1173,244 1172,229L1171,226Q1170,210 1171,194L1171,191Q1173,175 1157,176L1150,176Q1134,176 1136,192L1136,197Q1137,213 1136,225Z"/>
+    <path pathLength="1" style="--n:1.8;--t:1.01" d="M547,224Q547,240 563,241L592,242Q608,243 624,242L633,241Q649,240 650,224L650,216Q651,200 652,187L652,184Q653,170 637,171L620,172Q604,173 588,174L560,175Q544,175 546,188L546,191Q548,203 548,219Z"/>
+    <path pathLength="1" style="--n:2.8;--t:1.79" d="M657,230Q657,241 671,241L673,241Q687,241 703,242L706,242Q722,244 723,228L723,225Q724,209 724,195L723,193Q723,179 709,179L706,179Q692,178 677,180L674,180Q659,182 658,197L658,200Q658,216 657,227Z"/>
+    <path pathLength="1" style="--n:2.3;--t:1.91" d="M1407,226Q1408,241 1424,240L1434,240Q1450,240 1466,242L1477,244Q1493,246 1494,231L1495,228Q1497,213 1497,197L1497,194Q1497,179 1481,178L1461,177Q1445,176 1429,176L1422,176Q1406,175 1405,190L1405,193Q1405,208 1406,223Z"/>
+    <path pathLength="1" style="--n:15.0;--t:0.96" d="M1611,227Q1612,243 1628,243L1647,242Q1663,241 1676,241L1678,241Q1691,241 1691,227L1691,224Q1690,211 1692,195L1692,192Q1694,176 1678,178L1664,179Q1648,180 1632,181L1623,181Q1607,181 1608,193L1608,196Q1609,208 1610,224Z"/>
+    <path pathLength="1" style="--n:10.0;--t:1.96" d="M1271,227Q1270,243 1286,242L1290,241Q1306,240 1322,239L1336,239Q1352,238 1368,239L1375,239Q1391,239 1394,223L1395,216Q1397,200 1395,184L1394,178Q1392,162 1377,162L1374,162Q1360,162 1344,163L1329,163Q1313,163 1297,162L1288,162Q1272,162 1272,178L1272,187Q1271,203 1271,219Z"/>
+    <path pathLength="1" style="--n:11.0;--t:1.87" d="M1083,230Q1077,241 1093,239L1099,239Q1115,238 1120,223L1121,220Q1126,206 1125,190L1124,181Q1122,165 1106,162L1099,161Q1083,158 1087,164L1087,165Q1091,172 1091,188L1090,201Q1090,217 1084,228Z"/>
+    <path pathLength="1" style="--n:10.8;--t:1.16" d="M71,157Q72,172 88,173L104,174Q120,175 121,159L121,153Q122,137 122,121L123,116Q123,100 107,103L90,106Q75,109 73,122L72,125Q70,139 71,154Z"/>
+    <path pathLength="1" style="--n:16.7;--t:0.62" d="M129,164Q130,177 135,177L136,177Q142,176 154,174L157,174Q169,172 169,156L169,152Q169,136 169,124L169,121Q169,109 153,109L146,109Q130,109 129,125L128,132Q128,148 129,161Z"/>
+    <path pathLength="1" style="--n:7.3;--t:1.19" d="M1534,155Q1533,171 1549,170L1553,170Q1569,169 1585,170L1588,170Q1603,171 1619,170L1626,170Q1642,169 1640,158L1640,155Q1638,143 1638,129L1638,126Q1639,112 1623,112L1605,112Q1589,113 1574,111L1551,108Q1535,107 1535,120L1535,123Q1536,136 1535,152Z"/>
+    <path pathLength="1" style="--n:11.9;--t:1.39" d="M1486,150Q1487,166 1495,167L1497,167Q1505,168 1512,169L1514,169Q1521,170 1523,155L1523,152Q1525,137 1525,125L1525,122Q1524,110 1508,107L1502,105Q1487,102 1486,115L1485,118Q1484,132 1485,147Z"/>
+    <path pathLength="1" style="--n:11.6;--t:1.42" d="M179,154Q179,170 193,169L196,168Q209,166 225,169L228,170Q244,173 246,157L246,154Q248,138 249,124L249,122Q250,108 234,109L227,110Q211,111 197,114L194,114Q180,117 179,133Z"/>
+    <path pathLength="1" style="--n:20.4;--t:2.03" d="M490,150Q490,165 506,167L513,168Q529,169 528,153L528,148Q527,132 526,119L526,116Q525,104 509,101L506,101Q490,98 490,113L490,116Q490,131 490,146Z"/>
+    <path pathLength="1" style="--n:6.4;--t:1.35" d="M1871,157Q1871,173 1887,172L1891,172Q1907,171 1923,168L1926,167Q1942,165 1956,165L1958,165Q1972,164 1974,149L1976,133Q1978,118 1962,116L1945,114Q1929,112 1913,111L1889,109Q1873,108 1873,121L1872,123Q1871,136 1871,152Z"/>
+    <path pathLength="1" style="--n:10.5;--t:1.79" d="M-19,152Q-19,166 -4,166L-1,166Q15,166 31,168L44,169Q60,171 60,157L60,154Q61,140 63,124L64,113Q65,97 50,98L35,99Q19,100 3,100L-4,100Q-20,100 -19,116L-19,120Q-18,136 -19,149Z"/>
+    <path pathLength="1" style="--n:10.7;--t:1.31" d="M539,153Q542,169 557,166L571,164Q587,162 588,148L588,146Q590,133 589,117L589,112Q589,96 573,96L550,97Q534,98 534,114L535,119Q535,135 538,150Z"/>
+    <path pathLength="1" style="--n:19.0;--t:1.97" d="M597,147Q598,163 612,166L614,167Q628,170 640,171L643,171Q655,172 667,172L670,172Q682,172 680,156L678,147Q676,131 676,116L676,112Q676,97 660,96L648,96Q632,95 617,95L614,95Q598,95 597,110L597,112Q596,127 597,143Z"/>
+    <path pathLength="1" style="--n:8.9;--t:1.24" d="M254,157Q254,173 270,173L292,172Q308,172 324,171L339,170Q355,169 361,163L362,162Q367,156 368,140L368,136Q369,120 369,106L369,104Q370,90 354,89L325,88Q309,87 293,88L275,89Q259,89 258,105L257,113Q256,129 255,145Z"/>
+    <path pathLength="1" style="--n:20.5;--t:1.15" d="M689,158Q689,169 705,166L712,165Q727,162 743,161L770,159Q786,158 802,157L819,156Q835,155 833,142L833,139Q832,126 840,124L842,124Q850,121 851,115L851,114Q852,108 836,109L814,110Q798,111 782,110L749,109Q733,108 717,108L704,108Q688,108 688,124L688,127Q689,143 689,155Z"/>
+    <path pathLength="1" style="--n:21.5;--t:1.02" d="M1171,149Q1171,164 1187,163L1207,162Q1223,161 1239,160L1253,158Q1269,157 1276,155L1277,154Q1285,152 1285,136L1285,122Q1286,106 1270,105L1262,104Q1246,102 1231,100L1228,100Q1213,98 1197,98L1187,99Q1171,99 1170,114L1170,117Q1170,132 1171,147Z"/>
+    <path pathLength="1" style="--n:9.6;--t:0.97" d="M1764,136Q1765,151 1777,157L1779,158Q1790,164 1803,170L1806,171Q1819,177 1819,167L1819,165Q1820,155 1835,161L1847,166Q1862,173 1862,157L1862,150Q1861,134 1862,118L1863,115Q1864,99 1848,98L1825,95Q1809,94 1793,94L1783,93Q1767,93 1765,105L1765,107Q1762,118 1764,133Z"/>
+    <path pathLength="1" style="--n:7.3;--t:1.27" d="M1296,142Q1296,153 1312,153L1332,153Q1348,153 1364,153L1374,152Q1390,151 1390,139L1390,136Q1390,124 1391,109L1392,106Q1393,92 1377,92L1361,92Q1345,93 1329,93L1311,94Q1295,95 1295,110L1295,113Q1295,127 1296,139Z"/>
+    <path pathLength="1" style="--n:9.4;--t:1.86" d="M1402,135Q1401,151 1417,154L1420,155Q1436,159 1452,162L1460,164Q1476,168 1475,153L1475,150Q1475,134 1476,118L1477,111Q1479,95 1463,96L1457,96Q1441,97 1425,97L1420,98Q1404,98 1403,114Z"/>
+    <path pathLength="1" style="--n:8.4;--t:1.23" d="M376,143Q376,156 392,155L414,153Q430,152 446,151L465,150Q481,149 482,133L482,127Q484,111 483,98L483,96Q483,83 467,84L451,86Q435,88 419,88L396,88Q380,88 378,104L378,111Q376,127 376,140Z"/>
+    <path pathLength="1" style="--n:22.1;--t:1.53" d="M1081,144Q1085,150 1101,151L1114,152Q1130,154 1129,159L1129,161Q1128,166 1142,165L1145,165Q1160,165 1160,153L1160,150Q1161,138 1162,125L1162,122Q1163,108 1147,108L1122,108Q1106,108 1090,108L1078,109Q1062,109 1062,120L1062,122Q1062,133 1069,135L1070,135Q1077,136 1080,142Z"/>
+    <path pathLength="1" style="--n:17.0;--t:1.06" d="M1649,153Q1650,169 1666,169L1683,169Q1699,168 1699,159L1699,157Q1699,147 1710,147L1713,147Q1724,147 1738,149L1741,150Q1755,151 1755,135L1755,117Q1755,101 1739,100L1727,99Q1711,98 1695,96L1663,93Q1647,92 1647,108L1647,117Q1647,133 1648,149Z"/>
+    <path pathLength="1" style="--n:16.3;--t:2.17" d="M707,85Q707,99 723,98L726,98Q741,96 757,98L760,98Q776,100 774,86L774,83Q773,69 772,58L772,56Q772,45 757,42L754,41Q740,38 726,37L723,37Q709,37 708,51L707,54Q706,68 707,82Z"/>
+    <path pathLength="1" style="--n:23.2;--t:1.66" d="M785,82Q785,98 799,99L801,99Q815,100 831,100L836,100Q852,100 851,84L850,77Q850,61 850,54L850,53Q851,47 835,48L830,48Q814,48 801,51L798,51Q784,54 784,70Z"/>
+    <path pathLength="1" style="--n:21.2;--t:1.47" d="M1058,96Q1062,100 1078,99L1082,98Q1097,96 1111,97L1114,98Q1128,99 1128,86L1128,83Q1128,70 1130,59L1131,56Q1133,45 1117,43L1103,42Q1087,41 1071,39L1068,38Q1052,36 1052,52L1052,74Q1052,90 1057,95Z"/>
+    <path pathLength="1" style="--n:13.3;--t:1.04" d="M1885,83Q1885,97 1901,99L1907,100Q1923,102 1938,103L1941,104Q1956,105 1957,90L1957,87Q1958,72 1957,59L1957,56Q1956,43 1940,41L1933,40Q1917,38 1902,38L1899,38Q1884,38 1885,51L1885,53Q1885,66 1885,80Z"/>
+    <path pathLength="1" style="--n:25.1;--t:1.99" d="M104,76Q104,92 115,96L117,97Q127,102 143,101L152,101Q168,100 167,84L167,62Q166,46 152,46L149,47Q135,47 121,44L118,44Q104,41 104,57Z"/>
+    <path pathLength="1" style="--n:12.5;--t:1.16" d="M1175,72Q1175,88 1191,90L1195,90Q1211,91 1227,91L1241,92Q1257,92 1258,76L1259,52Q1259,36 1243,37L1235,38Q1219,39 1203,38L1192,37Q1176,36 1175,52Z"/>
+    <path pathLength="1" style="--n:13.3;--t:1.85" d="M1140,84Q1138,100 1151,95L1153,94Q1166,89 1165,73L1165,53Q1165,37 1154,37L1152,37Q1141,37 1142,50L1142,52Q1142,65 1140,81Z"/>
+    <path pathLength="1" style="--n:14.7;--t:1.38" d="M-28,80Q-27,94 -12,93L-9,93Q6,93 19,90L22,90Q34,87 35,71L36,54Q37,38 23,37L20,37Q7,35 -9,35L-14,34Q-30,34 -29,48L-29,50Q-28,64 -28,78Z"/>
+    <path pathLength="1" style="--n:24.2;--t:1.31" d="M46,72Q46,86 56,91L58,92Q69,97 80,95L82,94Q94,92 93,79L92,76Q91,63 92,47L92,43Q93,27 77,28L61,29Q45,30 46,41L46,43Q47,55 46,69Z"/>
+    <path pathLength="1" style="--n:11.5;--t:2.15" d="M964,62Q963,78 979,79L989,80Q1005,81 1021,82L1025,82Q1041,83 1040,67L1040,54Q1039,38 1023,37L1013,36Q997,35 982,34L980,34Q965,33 965,49Z"/>
+    <path pathLength="1" style="--n:13.9;--t:1.7" d="M608,69Q607,85 623,86L632,86Q648,87 664,86L667,86Q683,86 683,92L684,93Q684,99 689,99L690,99Q696,100 697,87L697,84Q699,71 700,55L700,52Q701,36 685,35L674,34Q658,33 642,33L626,33Q610,32 609,48Z"/>
+    <path pathLength="1" style="--n:16.3;--t:1.38" d="M501,73Q502,89 514,88L517,87Q529,86 543,88L545,89Q559,91 575,88L579,87Q595,84 597,73L598,71Q600,61 600,46L600,43Q599,28 583,29L564,30Q548,31 532,33L517,34Q501,36 501,52Z"/>
+    <path pathLength="1" style="--n:26.1;--t:1.09" d="M1269,79Q1268,95 1277,90L1279,89Q1289,85 1296,84L1298,83Q1305,82 1305,66L1305,54Q1304,38 1289,39L1286,39Q1271,39 1270,55Z"/>
+    <path pathLength="1" style="--n:15.1;--t:1.68" d="M1576,88Q1575,101 1590,96L1598,93Q1613,88 1626,86L1629,85Q1643,82 1644,92L1644,94Q1645,103 1658,95L1660,93Q1673,84 1673,68L1672,52Q1672,36 1656,36L1645,37Q1629,37 1613,39L1592,41Q1577,43 1577,56L1578,59Q1578,72 1577,85Z"/>
+    <path pathLength="1" style="--n:18.8;--t:1.59" d="M1774,70Q1774,83 1790,86L1812,89Q1828,92 1844,94L1852,95Q1868,97 1871,81L1873,76Q1876,60 1874,47L1874,45Q1872,32 1856,31L1846,30Q1830,30 1814,28L1794,25Q1778,23 1777,37L1776,40Q1775,54 1774,67Z"/>
+    <path pathLength="1" style="--n:24.1;--t:1.15" d="M1682,72Q1683,85 1699,87L1704,88Q1719,90 1735,91L1745,91Q1761,91 1763,76L1764,63Q1766,47 1767,34L1767,31Q1767,17 1751,19L1740,21Q1724,23 1708,24L1694,25Q1678,27 1680,40L1680,43Q1681,57 1682,70Z"/>
+    <path pathLength="1" style="--n:13.2;--t:0.96" d="M1315,67Q1315,82 1328,81L1331,81Q1344,80 1360,80L1366,80Q1382,80 1384,64L1385,45Q1386,29 1370,26L1366,25Q1350,22 1334,20L1331,20Q1315,19 1315,33L1315,36Q1315,50 1315,65Z"/>
+    <path pathLength="1" style="--n:21.6;--t:0.95" d="M1395,64Q1395,80 1410,82L1413,82Q1429,84 1441,85L1443,86Q1455,87 1454,72L1454,69Q1453,55 1454,44L1454,42Q1455,31 1440,33L1437,33Q1421,35 1409,36L1407,36Q1395,37 1395,53Z"/>
+    <path pathLength="1" style="--n:19.3;--t:2.14" d="M323,64Q322,80 337,79L340,79Q356,78 355,62L354,49Q353,33 340,34L337,34Q324,36 323,52Z"/>
+    <path pathLength="1" style="--n:22.0;--t:1.17" d="M365,61Q367,77 383,77L388,77Q404,78 404,62L404,40Q404,24 388,24L378,25Q362,25 363,41Z"/>
+    <path pathLength="1" style="--n:19.7;--t:1.75" d="M413,64Q413,78 429,79L435,79Q451,80 466,83L469,84Q485,87 486,80L486,79Q486,72 490,79L490,81Q494,88 491,72L491,67Q489,51 489,36L490,33Q490,18 474,18L467,19Q451,19 435,19L430,19Q414,18 413,31L413,34Q413,47 413,61Z"/>
+    <path pathLength="1" style="--n:20.6;--t:1.58" d="M866,39Q864,53 872,53L874,53Q882,53 886,59L887,60Q891,65 907,65L929,65Q945,65 946,49L946,44Q946,28 931,26L923,26Q907,24 891,23L885,23Q869,22 867,37Z"/>
+  </svg>
+  </div>
+  <div class="hero__inner">
+    <img class="hero__logo" src="img/logo-unacem-blanco.png" alt="UNACEM" width="700" height="188">
+    <div>
+      <h1 class="display hero__title">Offsite Codir 2026</h1>
+      <!-- GRUPOS DE WHATSAPP: reemplaza cada href="#" por el enlace de invitación
+           del grupo (https://chat.whatsapp.com/…). Mientras diga "#", el botón
+           se muestra atenuado y con la nota "Enlace por confirmar". -->
+      <div class="hero__whatsapp">
+        <a class="btn btn--wsp" href="https://chat.whatsapp.com/LGSyAkPoyCaEV801g8AQGe" target="_blank" rel="noopener">WhatsApp · Parejas de Codir</a>
+      </div>
+      <div class="hero__meta">
+        <span>4 al 8 de noviembre</span>
+        <span>Cusco y Valle Sagrado</span>
+        <span>Comité de Dirección</span>
+      </div>
+      <p style="margin:28px 0 0">
+        <a class="btn" href="data:text/calendar;charset=utf-8,BEGIN%3AVCALENDAR%0D%0AVERSION%3A2.0%0D%0APRODID%3A-//UNACEM//Offsite%20Codir//ES%0D%0ABEGIN%3AVEVENT%0D%0AUID%3Aoffsite-codir-2026%40unacem.pe%0D%0ADTSTAMP%3A20260830T120000Z%0D%0ADTSTART%3BVALUE%3DDATE%3A20261104%0D%0ADTEND%3BVALUE%3DDATE%3A20261109%0D%0ASUMMARY%3AOffsite%20Codir%20UNACEM%20-%20Cusco%20y%20Valle%20Sagrado%0D%0ALOCATION%3ACusco%20Peru%0D%0AEND%3AVEVENT%0D%0AEND%3AVCALENDAR" download="offsite-codir-2026.ics">Guardar en mi calendario</a>
+      </p>
+    </div>
+  </div>
+</header>
+
+<section class="seccion">
+  <div class="wrap">
+    <div class="seccion__head"><span class="seccion__num">01</span><h2 class="seccion__title">Lo esencial</h2></div>
+    <p class="intro">
+      Cinco días entre Cusco, el Valle Sagrado y Machu Picchu (opcional). Los dos
+      primeros son de trabajo con el Codir; a partir del jueves por la tarde se
+      suman las parejas. Aquí está todo lo que necesitas antes de salir.
+    </p>
+    <dl class="datos">
+      <div class="dato"><dt>Fechas</dt><dd>Miércoles 4 al<br>domingo 8 de noviembre</dd></div>
+      <div class="dato"><dt>Vuelo de ida</dt><dd>Miércoles 4: 10:45 a. m. y 12:45 p. m.<br>desde Lima</dd></div>
+      <div class="dato"><dt>Hospedaje</dt><dd>Casa Cartagena (Cusco)<br>Tambo del Inka (Urubamba)</dd></div>
+      <div class="dato"><dt>Vuelo de regreso</dt><dd>Domingo 8: 1:40 p. m. y 2:20 p. m.<br>desde Cusco</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="seccion seccion--panel" id="agenda">
+  <div class="wrap">
+    <div class="seccion__head"><span class="seccion__num">02</span><h2 class="seccion__title">Agenda</h2></div>
+    <div class="leyenda">
+      <span><i class="chip chip--codir"></i> Codir</span>
+      <span><i class="chip chip--parejas"></i> Parejas de Codir</span>
+      <span><i class="chip chip--todos"></i> Todos juntos</span>
+      <span><i class="chip chip--libre"></i> Tiempo libre</span>
+      <span style="color:var(--suave)">Toca cualquier actividad para ver el detalle.</span>
+    </div>
+    <div class="vistas" role="group" aria-label="Cambiar vista de la agenda">
+      <button class="vista" type="button" data-v="lista" aria-pressed="true">Lista</button>
+      <button class="vista" type="button" data-v="cal" aria-pressed="false">Calendario</button>
+    </div>
+    <div id="agenda-lista"></div>
+    <div id="agenda-cal" hidden></div>
+  </div>
+</section>
+
+<section class="seccion">
+  <div class="wrap">
+    <div class="seccion__head"><span class="seccion__num">03</span><h2 class="seccion__title">Hospedaje</h2></div>
+    <div class="hoteles">
+      <article class="hotel">
+        <img class="hotel__foto" src="img/fotos/casa-cartagena.jpg" alt="Hotel Casa Cartagena, Cusco" loading="lazy" width="1600" height="1000">
+        <div class="hotel__cuerpo">
+          <p class="hotel__dias">Miércoles 4 y jueves 5</p>
+          <h3>Casa Cartagena</h3>
+          <address>Centro histórico de Cusco · 3,400 m s. n. m.</address>
+          <p class="hotel__nota">Early check-in: la habitación está lista al llegar el miércoles.</p>
+          <div class="hotel__acciones">
+            <a class="btn btn--linea" href="https://maps.app.goo.gl/Vkw4C1B4VtaJJcKQ9" target="_blank" rel="noopener">Ver en el mapa</a>
+            <a class="btn btn--linea" href="https://casa-cartagena.cusco-hotels.net/es/#photo" target="_blank" rel="noopener">Página web</a>
+          </div>
+        </div>
+      </article>
+      <article class="hotel">
+        <img class="hotel__foto" src="img/fotos/tambo-del-inca.jpg" alt="Hotel Tambo del Inka, Urubamba" loading="lazy" width="1600" height="900">
+        <div class="hotel__cuerpo">
+          <p class="hotel__dias">Viernes 6 y sábado 7</p>
+          <h3>Tambo del Inka</h3>
+          <address>Urubamba, Valle Sagrado · 2,870 m s. n. m.</address>
+          <p class="hotel__nota">Check-in automático: las habitaciones ya están asignadas al llegar.</p>
+          <div class="hotel__acciones">
+            <a class="btn btn--linea" href="https://www.google.com/maps/search/?api=1&amp;query=Tambo%20del%20Inka%20Urubamba" target="_blank" rel="noopener">Ver en el mapa</a>
+            <a class="btn btn--linea" href="https://www.marriott.com/es/hotels/cuztl-tambo-del-inka-a-luxury-collection-resort-and-spa-valle-sagrado/overview/" target="_blank" rel="noopener">Página web</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <ul class="tips">
+      <li><strong>La altura del primer día</strong>
+        Cusco está a 3,400 m. Conviene llegar hidratado, almorzar ligero y evitar el
+        alcohol el miércoles. El Valle Sagrado está 500 m más abajo y se duerme mejor.</li>
+      <li><strong>Si tomas medicación</strong>
+        Consulta con tu médico antes del viaje, sobre todo si hay tratamiento cardíaco
+        o respiratorio de por medio. Lleva tus medicamentos en el equipaje de mano.</li>
+      <li><strong>Vestimenta</strong>
+        Recomendamos ropa cómoda: polo, jean y zapatillas, y un abrigo para la
+        noche, que en Cusco y el Valle Sagrado es fría.</li>
+      <li><strong>Qué llevar</strong>
+        Noviembre en Cusco tiene sol fuerte de día y frío de noche. Capas, casaca
+        abrigadora, bloqueador, sombrero y calzado cómodo para el tren y Machu Picchu.</li>
+      <li><strong>Documentos</strong>
+        DNI o pasaporte vigente para el vuelo y para el ingreso a Machu Picchu. El
+        documento debe coincidir con el del boleto del tren.</li>
+      <li><strong>Check-in</strong>
+        Casa Cartagena tiene early check-in: se entra a la habitación al llegar
+        el miércoles. En Tambo del Inka el check-in es automático.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="seccion seccion--panel">
+  <div class="wrap">
+    <div class="seccion__head"><span class="seccion__num">04</span><h2 class="seccion__title">¿Dudas?</h2></div>
+    <div class="contacto">
+      <div><p class="contacto__rol">Logística y viaje</p><p>Paloma Benavides</p><p><a href="mailto:paloma.benavides@unacem.pe">paloma.benavides@unacem.pe</a></p></div>
+      <div><p class="contacto__rol">Logística y viaje</p><p>Nathalie Robinson</p><p><a href="mailto:nathalie.robinson@unacem.pe">nathalie.robinson@unacem.pe</a></p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="pie">
+  <div class="wrap pie__inner">
+    <img class="pie__logo" src="img/logo-unacem-blanco.png" alt="UNACEM" width="700" height="188">
+    <small>Gestión del Talento · Documento interno · Actualizado el [fecha]</small>
+  </div>
+</footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-t" hidden>
+  <div class="modal__caja" id="modal-caja"></div>
+</div>
+<script type="module" src="js/app.js"></script>
+<script type="module" src="js/animaciones.js"></script>
+</body>
+</html>

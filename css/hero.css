@@ -1,0 +1,35 @@
+/* ---------------- HERO ---------------- */
+.hero{position:relative;background:var(--rojo);color:var(--blanco);overflow:hidden;
+  min-height:min(88vh,720px);display:flex;flex-direction:column;
+  /* alto del muro incaico: nunca menos que 13.6vw, que es la proporción del
+     dibujo (1920×260). Así las piedras de arriba no se cortan en pantallas anchas */
+  --muro-alto:max(clamp(140px,26vh,250px),13.6vw)}
+.hero__skyline{position:absolute;left:0;right:0;bottom:0;width:100%;
+  height:var(--muro-alto);pointer-events:none;opacity:.85}
+.hero__skyline svg{width:100%;height:100%;display:block}
+.hero__inner{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;
+  justify-content:space-between;gap:clamp(48px,10vh,110px);
+  /* abajo: el alto del muro más un respiro, para que el texto nunca lo pise */
+  padding:clamp(28px,5vh,48px) var(--gutter) calc(var(--muro-alto) + clamp(28px,5vh,48px));
+  width:100%;max-width:var(--ancho);margin:0 auto}
+.hero__logo{width:clamp(148px,20vw,220px);height:auto}
+.hero__title{font-size:clamp(2.9rem,11.5vw,7.4rem);max-width:14ch}
+.hero__meta{margin:clamp(20px,3vh,32px) 0 0;display:flex;flex-wrap:wrap;gap:8px 28px;
+  font-weight:500;font-size:clamp(1rem,1.6vw,1.2rem)}
+.hero__meta span{display:inline-flex;align-items:center;gap:10px}
+.hero__meta span::before{content:"";width:9px;height:9px;background:var(--blanco);flex:none}
+.borrador{display:inline-block;border:2px solid var(--blanco);padding:5px 12px;
+  font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  margin-bottom:clamp(18px,3vh,26px)}
+
+.hero .btn{background:var(--blanco);color:var(--rojo);border-color:var(--blanco)}
+.hero .btn:hover,.hero .btn:focus-visible{background:transparent;color:var(--blanco)}
+
+/* Botones de los grupos de WhatsApp, justo debajo del título (sin el verde de
+   WhatsApp: la paleta de marca no lo admite). Contorno blanco sobre rojo */
+.hero__whatsapp{display:flex;flex-wrap:wrap;gap:12px;margin:clamp(20px,3vh,28px) 0 0}
+.hero .btn--wsp{background:transparent;color:var(--blanco);padding:10px 20px}
+.hero .btn--wsp:hover,.hero .btn--wsp:focus-visible{background:var(--blanco);color:var(--rojo)}
+/* Enlace aún sin poner (href="#"): atenuado, sin clic y con nota */
+.hero .btn--wsp[href="#"]{opacity:.6;pointer-events:none}
+.hero .btn--wsp[href="#"]::after{content:" · Enlace por confirmar";font-weight:500}

@@ -1,0 +1,296 @@
+[
+  {
+    "dia": "Día 1",
+    "fecha": "Miércoles 4 de noviembre",
+    "bloques": [
+      {
+        "inicio": "2026-11-04 10:45",
+        "fin": "2026-11-04 14:20",
+        "titulo": "Vuelo a Cusco",
+        "lugar": "Aeropuerto Jorge Chávez → Casa Cartagena",
+        "quien": "codir",
+        "desc": "Dos vuelos de aproximadamente 1 hora y 35 minutos.\nGrupo 1: sale de Lima a las 10:45 a. m. y llega a Cusco a las 12:20 p. m.\nGrupo 2: sale de Lima a las 12:45 p. m. y llega a Cusco a las 2:20 p. m.\nTraslado al hotel: Casa Cartagena tiene early check-in; se puede entrar a la habitación al llegar.",
+        "objetivo": "Aclimatación",
+        "mapa": "https://maps.app.goo.gl/Fe8T4mgt5EvjdfAN7",
+        "web": "",
+        "foto": "img/fotos/aeropuerto-jorge-chavez.jpg"
+      },
+      {
+        "inicio": "2026-11-04 13:00",
+        "fin": "2026-11-04 15:00",
+        "titulo": "Almuerzo en La Bodega de la Chola",
+        "lugar": "La Bodega de la Chola",
+        "quien": "codir",
+        "desc": "Primer almuerzo del grupo.\nGrupo 2: se suma al llegar a Cusco.\nRecomendación: comer ligero; el cuerpo todavía se está acostumbrando a la altura.",
+        "objetivo": "",
+        "mapa": "La Bodega de la Chola Cusco",
+        "web": "",
+        "foto": "img/fotos/bodega-de-la-chola.jpg"
+      },
+      {
+        "inicio": "2026-11-04 15:00",
+        "fin": "2026-11-04 16:00",
+        "titulo": "Cóctel de bienvenida",
+        "lugar": "Lounge del hotel",
+        "quien": "libre",
+        "desc": "Espacio libre para instalarse y conversar sin agenda.",
+        "objetivo": "",
+        "mapa": "https://maps.app.goo.gl/Vkw4C1B4VtaJJcKQ9",
+        "web": "https://casa-cartagena.cusco-hotels.net/es/#photo",
+        "foto": "img/fotos/casa-cartagena-lounge.jpg"
+      },
+      {
+        "inicio": "2026-11-04 16:00",
+        "fin": "2026-11-04 18:00",
+        "titulo": "Dinámica Anclaje",
+        "lugar": "Animales de Poder",
+        "quien": "codir",
+        "desc": "Dinámica de apertura del offsite.",
+        "objetivo": "Diversidad y sinergias",
+        "mapa": "",
+        "web": "",
+        "foto": ""
+      },
+      {
+        "inicio": "2026-11-04 18:00",
+        "fin": "2026-11-04 21:00",
+        "titulo": "Actividad y cena",
+        "lugar": "T. V.",
+        "quien": "codir",
+        "desc": "Sesión de trabajo bajo el marco Hacer + Poder + Querer, seguida de la cena.",
+        "objetivo": "Motivación",
+        "mapa": "",
+        "web": "",
+        "foto": ""
+      }
+    ]
+  },
+  {
+    "dia": "Día 2",
+    "fecha": "Jueves 5 de noviembre",
+    "bloques": [
+      {
+        "inicio": "2026-11-05 06:30",
+        "fin": "2026-11-05 08:00",
+        "titulo": "Desayuno en Casa Cartagena",
+        "lugar": "Casa Cartagena",
+        "quien": "libre",
+        "desc": "Desayuno libre en el hotel.",
+        "objetivo": "",
+        "mapa": "https://maps.app.goo.gl/Vkw4C1B4VtaJJcKQ9",
+        "web": "https://casa-cartagena.cusco-hotels.net/es/#photo",
+        "foto": "img/fotos/casa-cartagena.jpg"
+      },
+      {
+        "inicio": "2026-11-05 08:00",
+        "fin": "2026-11-05 13:00",
+        "titulo": "Cuida tu legado",
+        "lugar": "Lounge del hotel",
+        "quien": "codir",
+        "desc": "Sesión de trabajo de la mañana.",
+        "objetivo": "Co-construcción",
+        "mapa": "https://maps.app.goo.gl/Vkw4C1B4VtaJJcKQ9",
+        "web": "https://casa-cartagena.cusco-hotels.net/es/#photo",
+        "foto": "img/fotos/casa-cartagena-lounge.jpg"
+      },
+      {
+        "inicio": "2026-11-05 13:00",
+        "fin": "2026-11-05 14:30",
+        "titulo": "Almuerzo en La Bodega de la Chola",
+        "lugar": "La Bodega de la Chola",
+        "quien": "codir",
+        "desc": "",
+        "objetivo": "",
+        "mapa": "La Bodega de la Chola Cusco",
+        "web": "",
+        "foto": "img/fotos/bodega-de-la-chola.jpg"
+      },
+      {
+        "inicio": "2026-11-05 14:30",
+        "fin": "2026-11-05 17:30",
+        "titulo": "Cimentando el futuro",
+        "lugar": "Casa Cartagena",
+        "quien": "codir",
+        "desc": "Sinergias y co-construcción. Facilitación y discusión grupal.",
+        "objetivo": "Colaboración",
+        "mapa": "https://maps.app.goo.gl/Vkw4C1B4VtaJJcKQ9",
+        "web": "https://casa-cartagena.cusco-hotels.net/es/#photo",
+        "foto": "img/fotos/casa-cartagena-lounge.jpg"
+      },
+      {
+        "inicio": "2026-11-05 16:00",
+        "fin": "2026-11-05 17:20",
+        "titulo": "Llegada de las parejas",
+        "lugar": "Recojo en el aeropuerto y check-in",
+        "quien": "parejas",
+        "desc": "Vuelo de las parejas, recojo y traslado a Casa Cartagena.",
+        "objetivo": "",
+        "mapa": "https://maps.app.goo.gl/cwp52F46vKQVKpAt6",
+        "web": "",
+        "foto": "img/fotos/aeropuerto-cusco.jpg"
+      },
+      {
+        "inicio": "2026-11-05 17:30",
+        "fin": "2026-11-05 21:00",
+        "titulo": "Cena en MAP Café",
+        "lugar": "Museo de Arte Precolombino",
+        "quien": "todos",
+        "desc": "Cena de tres tiempos en el patio del museo, ya con las parejas.",
+        "objetivo": "Museo y camaradería",
+        "mapa": "MAP Cafe Museo de Arte Precolombino Cusco",
+        "web": "",
+        "foto": "img/fotos/map-cafe.jpg"
+      }
+    ]
+  },
+  {
+    "dia": "Día 3",
+    "fecha": "Viernes 6 de noviembre",
+    "bloques": [
+      {
+        "inicio": "2026-11-06 06:00",
+        "fin": "2026-11-06 07:30",
+        "titulo": "Desayuno y checkout en Casa Cartagena",
+        "lugar": "Casa Cartagena → Tambo del Inka",
+        "quien": "todos",
+        "desc": "Salida hacia el Valle Sagrado: unas dos horas de camino.\nA partir de acá el Codir y las parejas siguen rutas distintas durante la mañana.",
+        "objetivo": "Traslado al Valle Sagrado",
+        "mapa": "Tambo del Inka Urubamba",
+        "web": "https://www.marriott.com/es/hotels/cuztl-tambo-del-inka-a-luxury-collection-resort-and-spa-valle-sagrado/overview/",
+        "foto": "img/fotos/ruta-valle-sagrado.jpg"
+      },
+      {
+        "inicio": "2026-11-06 07:30",
+        "fin": "2026-11-06 13:00",
+        "titulo": "Tour day: Viñedos del Inca",
+        "lugar": "Valle Sagrado",
+        "quien": "parejas",
+        "desc": "Recorrido de agricultura sostenible con brunch, solo para las parejas.\nSalida: hora exacta por confirmar.\nRetorno al hotel: 1:00 p. m.",
+        "objetivo": "Camaradería",
+        "mapa": "Viñedos del Inca Valle Sagrado",
+        "web": "",
+        "foto": "img/fotos/vinedos-del-inca.jpg"
+      },
+      {
+        "inicio": "2026-11-06 13:00",
+        "fin": "2026-11-06 15:00",
+        "titulo": "Tiempo libre en Tambo del Inka",
+        "lugar": "Tambo del Inka",
+        "quien": "parejas",
+        "desc": "Al volver del tour, tiempo libre en el Hotel Tambo del Inka.\nReencuentro con el Codir: 3:00 p. m.",
+        "objetivo": "",
+        "mapa": "Tambo del Inka Urubamba",
+        "web": "https://www.marriott.com/es/hotels/cuztl-tambo-del-inka-a-luxury-collection-resort-and-spa-valle-sagrado/overview/",
+        "foto": "img/fotos/tambo-del-inca.jpg"
+      },
+      {
+        "inicio": "2026-11-06 10:00",
+        "fin": "2026-11-06 13:00",
+        "titulo": "Teambuilding: Reto Leonardo da Vinci",
+        "lugar": "Hotel Tambo del Inka",
+        "quien": "codir",
+        "desc": "Desafío de co-construcción en equipo.",
+        "objetivo": "Trabajo en equipo",
+        "mapa": "Tambo del Inka Urubamba",
+        "web": "https://www.marriott.com/es/hotels/cuztl-tambo-del-inka-a-luxury-collection-resort-and-spa-valle-sagrado/overview/",
+        "foto": "img/fotos/tambo-del-inca.jpg"
+      },
+      {
+        "inicio": "2026-11-06 13:00",
+        "fin": "2026-11-06 15:00",
+        "titulo": "Decálogo de convivencia",
+        "lugar": "Tambo del Inka",
+        "quien": "codir",
+        "desc": "Discusión y cierre de los acuerdos del Codir.",
+        "objetivo": "",
+        "mapa": "Tambo del Inka Urubamba",
+        "web": "https://www.marriott.com/es/hotels/cuztl-tambo-del-inka-a-luxury-collection-resort-and-spa-valle-sagrado/overview/",
+        "foto": "img/fotos/tambo-del-inca.jpg"
+      },
+      {
+        "inicio": "2026-11-06 15:00",
+        "fin": "2026-11-06 16:00",
+        "titulo": "Check-in en Tambo del Inka y reencuentro",
+        "lugar": "Tambo del Inka",
+        "quien": "libre",
+        "desc": "Check-in automático: las habitaciones ya están asignadas al llegar.\nTiempo libre para instalarse y reencontrarse con las parejas.",
+        "objetivo": "",
+        "mapa": "Tambo del Inka Urubamba",
+        "web": "https://www.marriott.com/es/hotels/cuztl-tambo-del-inka-a-luxury-collection-resort-and-spa-valle-sagrado/overview/",
+        "foto": "img/fotos/tambo-del-inca.jpg"
+      },
+      {
+        "inicio": "2026-11-06 16:00",
+        "fin": "2026-11-06 17:30",
+        "titulo": "Fun night",
+        "lugar": "Tambo del Inka",
+        "quien": "todos",
+        "desc": "Juego de roles y estrategia en equipo, con las parejas. Cierra lo trabajado los días 1 y 2.",
+        "objetivo": "Aterrizaje y cierre",
+        "mapa": "Tambo del Inka Urubamba",
+        "web": "https://www.marriott.com/es/hotels/cuztl-tambo-del-inka-a-luxury-collection-resort-and-spa-valle-sagrado/overview/",
+        "foto": "img/fotos/tambo-del-inca-exteriores.jpg"
+      },
+      {
+        "inicio": "2026-11-06 17:30",
+        "fin": null,
+        "titulo": "Parrilla en Tambo del Inka",
+        "lugar": "Tambo del Inka",
+        "quien": "todos",
+        "desc": "Cena al aire libre con las parejas, a continuación de la Fun night.\nCierre: sin hora definida.",
+        "objetivo": "Camaradería y regalo sorpresa",
+        "mapa": "Tambo del Inka Urubamba",
+        "web": "https://www.marriott.com/es/hotels/cuztl-tambo-del-inka-a-luxury-collection-resort-and-spa-valle-sagrado/overview/",
+        "foto": "img/fotos/tambo-del-inca-exteriores.jpg"
+      }
+    ]
+  },
+  {
+    "dia": "Día 4",
+    "fecha": "Sábado 7 de noviembre",
+    "bloques": [
+      {
+        "inicio": "2026-11-07 06:06",
+        "fin": "2026-11-07 15:00",
+        "titulo": "Viaje a Machu Picchu (opcional)",
+        "lugar": "Inca Rail / Perú Rail",
+        "quien": "todos",
+        "desc": "Actividad opcional.\nSalida del tren: 6:06 a. m., desde el Valle Sagrado.\nRegreso: 3:00 p. m.\nDesayuno: ese día no hay desayuno grupal.\nDocumentos: llevar el mismo documento con el que se compró el boleto.",
+        "objetivo": "",
+        "mapa": "Estacion de tren Urubamba",
+        "web": "",
+        "foto": "img/fotos/machu-picchu.jpg"
+      },
+      {
+        "inicio": "2026-11-07 15:00",
+        "fin": "2026-11-07 17:00",
+        "titulo": "Regreso a Tambo del Inka",
+        "lugar": "Tambo del Inka",
+        "quien": "todos",
+        "desc": "",
+        "objetivo": "",
+        "mapa": "Tambo del Inka Urubamba",
+        "web": "https://www.marriott.com/es/hotels/cuztl-tambo-del-inka-a-luxury-collection-resort-and-spa-valle-sagrado/overview/",
+        "foto": "img/fotos/tambo-del-inca.jpg"
+      }
+    ]
+  },
+  {
+    "dia": "Día 5",
+    "fecha": "Domingo 8 de noviembre",
+    "bloques": [
+      {
+        "inicio": "2026-11-08 13:40",
+        "fin": "2026-11-08 15:55",
+        "titulo": "Vuelo de regreso a Lima",
+        "lugar": "Aeropuerto Alejandro Velasco Astete",
+        "quien": "todos",
+        "desc": "Dos vuelos de aproximadamente 1 hora y 35 minutos.\nGrupo 1: sale de Cusco a la 1:40 p. m. y llega a Lima a las 3:15 p. m.\nGrupo 2: sale de Cusco a las 2:20 p. m. y llega a Lima a las 3:55 p. m.",
+        "objetivo": "",
+        "mapa": "https://maps.app.goo.gl/cwp52F46vKQVKpAt6",
+        "web": "",
+        "foto": "img/fotos/aeropuerto-cusco.jpg"
+      }
+    ]
+  }
+]

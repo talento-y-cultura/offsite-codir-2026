@@ -1,0 +1,44 @@
+/* ---------------- LEYENDA ---------------- */
+.leyenda{display:flex;flex-wrap:wrap;gap:10px 20px;margin:0 0 clamp(26px,4vw,38px);
+  font-size:.92rem;align-items:center}
+.leyenda span{display:inline-flex;align-items:center;gap:9px}
+.chip{display:inline-block;width:13px;height:13px;flex:none}
+.chip--codir{background:var(--rojo)}
+.chip--parejas{background:var(--blanco);border:3px solid var(--rojo)}
+.seccion--panel .chip--parejas{background:var(--panel)}
+.chip--todos{background:var(--negro)}
+.chip--libre{background:var(--linea)}
+
+/* ---------------- AGENDA ---------------- */
+.dia{margin-bottom:clamp(40px,6vw,64px)}
+.dia:last-child{margin-bottom:0}
+.dia__head{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 16px;
+  background:var(--rojo);color:var(--blanco);padding:14px 20px}
+.dia__num{font-family:var(--display);font-variation-settings:"wdth" 125,"wght" 800;
+  font-size:clamp(1.1rem,2.6vw,1.5rem);text-transform:uppercase}
+.dia__fecha{font-weight:500;opacity:.92}
+
+.bloque{display:grid;grid-template-columns:155px 1fr auto;gap:0 20px;align-items:start;
+  width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--linea);
+  padding:18px 16px 18px 0;cursor:pointer;transition:background .12s ease}
+.bloque:hover,.bloque:focus-visible{background:rgba(0,0,0,.035)}
+.bloque:last-child{border-bottom:2px solid var(--negro)}
+.bloque__hora{font-weight:700;font-variant-numeric:tabular-nums;padding-left:18px;
+  border-left:5px solid var(--rojo);align-self:stretch;font-size:.97rem}
+.bloque--parejas .bloque__hora{border-left-color:var(--rojo);border-left-style:double;border-left-width:6px}
+.bloque--todos .bloque__hora{border-left-color:var(--negro)}
+.bloque--libre .bloque__hora{border-left-color:var(--linea);color:var(--suave)}
+/* ---------------- CAMBIO DE VISTA ---------------- */
+.vistas{display:inline-flex;border:2px solid var(--negro);margin:0 0 clamp(22px,3vw,32px)}
+.vista{background:none;border:0;padding:11px 22px;font-weight:700;cursor:pointer;
+  font-size:.95rem;transition:background .12s ease,color .12s ease}
+.vista + .vista{border-left:2px solid var(--negro)}
+.vista[aria-pressed="true"]{background:var(--negro);color:var(--blanco)}
+
+
+@media(max-width:620px){
+  .bloque{grid-template-columns:1fr;gap:6px;padding:16px 0}
+  .bloque__hora{align-self:start}
+  .bloque__t,.bloque__l{padding-left:23px}
+  .bloque__mas{display:none}
+}

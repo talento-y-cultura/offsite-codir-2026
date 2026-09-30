@@ -1,0 +1,10 @@
+/* Variables de marca UNACEM. Aquí se cambian colores, fuentes y anchos.
+   Si Comunicaciones entrega los .woff2 licenciados de Chaney y Silka,
+   se cargan con @font-face y se ajustan --display y --texto. */
+:root{
+  --rojo:#ff0000; --negro:#000000; --blanco:#ffffff;
+  --panel:#f2f2f2; --linea:#d8d8d8; --tinta:#1a1a1a; --suave:#6b6b6b;
+  --display:"Archivo","Arial Black",system-ui,sans-serif;
+  --texto:"Hanken Grotesk",Calibri,system-ui,-apple-system,sans-serif;
+  --ancho:1120px; --gutter:clamp(20px,5vw,64px);
+}

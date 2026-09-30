@@ -1,0 +1,14 @@
+@media print{
+  .hero{min-height:auto;background:#fff;color:#000}
+  .hero__skyline,.borrador,.hero .btn,.bloque__mas,.modal,.leyenda{display:none}
+  .seccion{padding:16px 0}
+  .dia__head{background:#fff;color:#000;border-bottom:3px solid #000;padding-left:0}
+  .dia,.bloque{page-break-inside:avoid}
+  .pie{background:#fff;color:#000}
+  .hotel__foto{display:none}
+  /* las animaciones no deben dejar nada oculto en papel */
+  .anima .revelar,.anima .revelar-cabeza > *,.anima .titulo__interior,.anima .hero__title,
+  .anima .hero__meta span{opacity:1!important;transform:none!important;animation:none!important}
+  .anima .revelar-cabeza{border-top-color:#000!important}
+  .anima .revelar-cabeza::before{display:none}
+}
