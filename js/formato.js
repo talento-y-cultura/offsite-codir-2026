@@ -55,6 +55,24 @@ export function icsDe(b) {
   return "data:text/calendar;charset=utf-8," + encodeURIComponent(l.join("\r\n"));
 }
 
+/* Enlace que abre Outlook en la web con el evento ya lleno: solo falta "Guardar".
+   Es para cuentas de trabajo (Microsoft 365); el evento aparece también en el
+   calendario de Teams. Las horas van en hora de Lima/Cusco (-05:00).
+   Sin hora de cierre, el evento se agenda con 2 horas de duración. */
+export function outlookDe(b) {
+  const iso = s => s.replace(" ", "T") + ":00-05:00";
+  const mas2h = s => {
+    const m = minutos(s) + 120;
+    return s.slice(0, 11) + String(m / 60 | 0).padStart(2, "0") + ":" + String(m % 60).padStart(2, "0");
+  };
+  const p = {
+    subject: b.titulo, startdt: iso(b.inicio), enddt: iso(b.fin || mas2h(b.inicio)),
+    location: b.lugar, body: b.desc || ""
+  };
+  return "https://outlook.office.com/calendar/0/deeplink/compose?" +
+    Object.keys(p).map(k => k + "=" + encodeURIComponent(p[k])).join("&");
+}
+
 /* El campo mapa puede ser un enlace de Google Maps ("https://maps.app.goo.gl/…"),
    que se usa tal cual, o un texto de búsqueda ("Casa Cartagena Cusco") */
 export const mapaUrl = q => /^https?:\/\//.test(q) ? q

@@ -1,6 +1,30 @@
 /* ---------------- SECCIONES ---------------- */
 .seccion{padding:clamp(56px,9vw,104px) 0}
 .seccion--panel{background:var(--panel)}
+/* Fondo de las secciones: curvas de nivel en el gris de línea de la paleta
+   (img/fondo-curvas.svg, se regenera con herramientas/fondo-curvas.py).
+   Para hacerlo más o menos visible, cambiar la opacidad. En la agenda no va,
+   para no estorbar la lectura de la grilla */
+.seccion:not(#agenda){position:relative;isolation:isolate;overflow:hidden}
+.seccion:not(#agenda)::before{content:"";position:absolute;inset:-40px;z-index:-1;
+  background:url(../img/fondo-curvas.svg) center/cover no-repeat;opacity:.55;pointer-events:none;
+  /* Degradado: las líneas se desvanecen detrás de la columna de texto (centro,
+     --texto-ancho) y mantienen su gris en los costados. --tenue es cuánto se
+     ven detrás del texto (0 = nada, 1 = igual que en los costados) */
+  --tenue:rgba(0,0,0,.18); --texto-ancho:500px;
+  -webkit-mask-image:linear-gradient(to right,#000 0,#000 calc(50% - var(--texto-ancho) - 160px),
+    var(--tenue) calc(50% - var(--texto-ancho)),var(--tenue) calc(50% + var(--texto-ancho)),
+    #000 calc(50% + var(--texto-ancho) + 160px),#000 100%);
+  mask-image:linear-gradient(to right,#000 0,#000 calc(50% - var(--texto-ancho) - 160px),
+    var(--tenue) calc(50% - var(--texto-ancho)),var(--tenue) calc(50% + var(--texto-ancho)),
+    #000 calc(50% + var(--texto-ancho) + 160px),#000 100%)}
+
+/* Botón del grupo de WhatsApp (bajo el hero, antes de "Lo esencial") */
+.wsp{display:inline-flex;align-items:center;gap:10px;background:var(--rojo);color:var(--blanco);
+  border-color:var(--rojo);margin:0 0 clamp(36px,5vw,56px)}
+.wsp:hover,.wsp:focus-visible{background:var(--negro);border-color:var(--negro);color:var(--blanco)}
+.wsp svg{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round}
 .seccion__head{display:flex;align-items:baseline;gap:16px;
   margin-bottom:clamp(28px,4vw,44px);border-top:3px solid var(--negro);padding-top:18px}
 .seccion__num{font-family:var(--display);font-variation-settings:"wdth" 125,"wght" 700;
@@ -34,8 +58,10 @@ img.hotel__foto{width:100%;height:auto;object-fit:cover;padding:0}
 .tips{list-style:none;margin:clamp(36px,5vw,56px) 0 0;padding:0;
   display:grid;gap:0;grid-template-columns:1fr}
 @media(min-width:760px){.tips{grid-template-columns:1fr 1fr;column-gap:48px}}
-.tips li{padding:16px 0 16px 34px;border-bottom:1px solid var(--linea);position:relative}
-.tips li::before{content:"";position:absolute;left:0;top:23px;width:16px;height:3px;background:var(--rojo)}
+.tips li{padding:16px 0 16px 42px;border-bottom:1px solid var(--linea);position:relative}
+/* Ícono de cada consejo: trazo rojo de marca, sin relleno */
+.tips__icono{position:absolute;left:0;top:16px;width:26px;height:26px;fill:none;
+  stroke:var(--rojo);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .tips strong{display:block}
 
 .aviso{border-left:5px solid var(--rojo);padding:16px 0 16px 20px;margin:clamp(30px,4vw,44px) 0 0;

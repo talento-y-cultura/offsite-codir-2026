@@ -36,8 +36,8 @@
         "desc": "Espacio libre para instalarse y conversar sin agenda.",
         "objetivo": "",
         "mapa": "https://maps.app.goo.gl/Vkw4C1B4VtaJJcKQ9",
-        "web": "https://casa-cartagena.cusco-hotels.net/es/#photo",
-        "foto": "img/fotos/casa-cartagena-lounge.jpg"
+        "web": "https://www.casacartagena.com/es",
+        "foto": "img/fotos/casa-cartagena-lounge-dia.jpg"
       },
       {
         "inicio": "2026-11-04 16:00",
@@ -49,7 +49,7 @@
         "objetivo": "Diversidad y sinergias",
         "mapa": "",
         "web": "",
-        "foto": ""
+        "foto": "img/fotos/dinamica-anclaje.jpg"
       },
       {
         "inicio": "2026-11-04 18:00",
@@ -61,7 +61,7 @@
         "objetivo": "Motivación",
         "mapa": "",
         "web": "",
-        "foto": ""
+        "foto": "img/fotos/actividad-y-cena.jpg"
       }
     ]
   },
@@ -78,7 +78,7 @@
         "desc": "Desayuno libre en el hotel.",
         "objetivo": "",
         "mapa": "https://maps.app.goo.gl/Vkw4C1B4VtaJJcKQ9",
-        "web": "https://casa-cartagena.cusco-hotels.net/es/#photo",
+        "web": "https://www.casacartagena.com/es",
         "foto": "img/fotos/casa-cartagena.jpg"
       },
       {
@@ -90,8 +90,8 @@
         "desc": "Sesión de trabajo de la mañana.",
         "objetivo": "Co-construcción",
         "mapa": "https://maps.app.goo.gl/Vkw4C1B4VtaJJcKQ9",
-        "web": "https://casa-cartagena.cusco-hotels.net/es/#photo",
-        "foto": "img/fotos/casa-cartagena-lounge.jpg"
+        "web": "https://www.casacartagena.com/es",
+        "foto": "img/fotos/casa-cartagena-lounge-dia.jpg"
       },
       {
         "inicio": "2026-11-05 13:00",
@@ -114,8 +114,8 @@
         "desc": "Sinergias y co-construcción. Facilitación y discusión grupal.",
         "objetivo": "Colaboración",
         "mapa": "https://maps.app.goo.gl/Vkw4C1B4VtaJJcKQ9",
-        "web": "https://casa-cartagena.cusco-hotels.net/es/#photo",
-        "foto": "img/fotos/casa-cartagena-lounge.jpg"
+        "web": "https://www.casacartagena.com/es",
+        "foto": "img/fotos/casa-cartagena-lounge-noche.jpg"
       },
       {
         "inicio": "2026-11-05 16:00",
@@ -165,7 +165,7 @@
         "titulo": "Tour day: Viñedos del Inca",
         "lugar": "Valle Sagrado",
         "quien": "parejas",
-        "desc": "Recorrido de agricultura sostenible con brunch, solo para las parejas.\nSalida: hora exacta por confirmar.\nRetorno al hotel: 1:00 p. m.",
+        "desc": "Recorrido de agricultura sostenible con brunch, solo para las parejas.\nSalida: 7:30 a. m.\nRetorno al hotel: 1:00 p. m.",
         "objetivo": "Camaradería",
         "mapa": "Viñedos del Inca Valle Sagrado",
         "web": "",
@@ -193,7 +193,7 @@
         "objetivo": "Trabajo en equipo",
         "mapa": "Tambo del Inka Urubamba",
         "web": "https://www.marriott.com/es/hotels/cuztl-tambo-del-inka-a-luxury-collection-resort-and-spa-valle-sagrado/overview/",
-        "foto": "img/fotos/tambo-del-inca.jpg"
+        "foto": "img/fotos/tambo-del-inca-coconstruccion.jpg"
       },
       {
         "inicio": "2026-11-06 13:00",
@@ -217,7 +217,7 @@
         "objetivo": "",
         "mapa": "Tambo del Inka Urubamba",
         "web": "https://www.marriott.com/es/hotels/cuztl-tambo-del-inka-a-luxury-collection-resort-and-spa-valle-sagrado/overview/",
-        "foto": "img/fotos/tambo-del-inca.jpg"
+        "foto": "img/fotos/tambo-del-inca-cuartos.jpg"
       },
       {
         "inicio": "2026-11-06 16:00",
@@ -229,7 +229,7 @@
         "objetivo": "Aterrizaje y cierre",
         "mapa": "Tambo del Inka Urubamba",
         "web": "https://www.marriott.com/es/hotels/cuztl-tambo-del-inka-a-luxury-collection-resort-and-spa-valle-sagrado/overview/",
-        "foto": "img/fotos/tambo-del-inca-exteriores.jpg"
+        "foto": "img/fotos/tambo-del-inca-actividad.jpg"
       },
       {
         "inicio": "2026-11-06 17:30",
@@ -241,7 +241,7 @@
         "objetivo": "Camaradería y regalo sorpresa",
         "mapa": "Tambo del Inka Urubamba",
         "web": "https://www.marriott.com/es/hotels/cuztl-tambo-del-inka-a-luxury-collection-resort-and-spa-valle-sagrado/overview/",
-        "foto": "img/fotos/tambo-del-inca-exteriores.jpg"
+        "foto": "img/fotos/tambo-del-inca-parrilla.jpg"
       }
     ]
   },

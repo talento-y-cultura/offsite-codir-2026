@@ -1,5 +1,5 @@
 /* Detalle de actividad: abrir, cerrar (X, fuera, Escape) y devolver el foco */
-import { ETIQUETAS, rango, icsDe, mapaUrl, textoDesc } from "./formato.js";
+import { ETIQUETAS, rango, icsDe, outlookDe, mapaUrl, textoDesc } from "./formato.js";
 
 export function iniciarModal(agenda) {
   const modal = document.getElementById("modal");
@@ -13,8 +13,12 @@ export function iniciarModal(agenda) {
       : '<div class="modal__foto modal__foto--vacia"><div>Espacio para la foto del lugar<br>' +
         '<span style="font-size:.85em">Agrega la ruta en el campo <code>foto</code></span></div></div>';
     const acciones = [];
-    if (b.inicio) acciones.push('<a class="btn" href="' + icsDe(b) +
-      '" download="' + b.titulo.replace(/[^\w]+/g, "-").toLowerCase() + '.ics">Añadir al calendario</a>');
+    /* Outlook (cuentas de trabajo, se ve también en Teams) y .ics para
+       cualquier otro calendario: iPhone, Android, Gmail, Outlook personal */
+    if (b.inicio) acciones.push('<a class="btn" href="' + outlookDe(b) +
+      '" target="_blank" rel="noopener">Añadir a Outlook / Teams</a>',
+      '<a class="btn btn--linea" href="' + icsDe(b) + '" download="' +
+      b.titulo.replace(/[^\w]+/g, "-").toLowerCase() + '.ics">Otro calendario</a>');
     if (b.mapa) acciones.push('<a class="btn btn--linea" href="' + mapaUrl(b.mapa) +
       '" target="_blank" rel="noopener">Ver ubicación</a>');
     if (b.web) acciones.push('<a class="btn btn--linea" href="' + b.web +

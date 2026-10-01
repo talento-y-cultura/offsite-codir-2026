@@ -1,6 +1,7 @@
 @media print{
   .hero{min-height:auto;background:#fff;color:#000}
-  .hero__skyline,.borrador,.hero .btn,.bloque__mas,.modal,.leyenda{display:none}
+  .hero__skyline,.borrador,.hero .btn,.bloque__mas,.modal,.leyenda,.wsp{display:none}
+  .seccion::before{display:none!important}
   .seccion{padding:16px 0}
   .dia__head{background:#fff;color:#000;border-bottom:3px solid #000;padding-left:0}
   .dia,.bloque{page-break-inside:avoid}

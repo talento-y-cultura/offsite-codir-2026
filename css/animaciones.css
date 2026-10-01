@@ -47,6 +47,11 @@
 .letra__a{display:inline-block}
 .letra__b{position:absolute;inset:0;padding-block:var(--aire-letra);transform:translateX(-110%)}
 
+/* ---- Fondo de curvas de nivel: deriva muy lenta, casi imperceptible ---- */
+.anima .seccion:not(#agenda)::before{animation:deriva 38s ease-in-out infinite alternate}
+.anima .seccion--panel:not(#agenda)::before{animation-duration:46s;animation-direction:alternate-reverse}
+@keyframes deriva{from{transform:translate(-18px,-10px)}to{transform:translate(18px,10px) scale(1.03)}}
+
 /* ---- Revelado al hacer scroll (el JS agrega .revelar y luego .visto) ---- */
 .anima .revelar{opacity:0;transform:translateY(26px);
   transition:opacity .7s ease,transform .9s var(--anim-salida);
